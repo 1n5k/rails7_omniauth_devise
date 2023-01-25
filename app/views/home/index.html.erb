@@ -1,0 +1,10 @@
+<h1>Welcome! Home#index</h1>
+<p>
+  <%= current_user.email %> としてログイン中
+</p>
+<p>
+  <%= link_to 'アカウント編集', edit_user_registration_path %>
+</p>
+<p>
+  <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
+</p>
