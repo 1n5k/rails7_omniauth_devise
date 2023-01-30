@@ -37,6 +37,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
+      if @user.uid == nil
+        @user.uid = request.env['omniauth.auth'].uid
+        @user.provider = provider
+        @user.save!
+      end
       sign_in_and_redirect @user, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
