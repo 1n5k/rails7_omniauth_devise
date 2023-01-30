@@ -6,9 +6,23 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  * Ruby 3.1.3
+  * Rails 7.0.4
 
-* System dependencies
+## Bootstrap
+```sh
+rbenv exec bundle install
+```
 
+## DB Creattion
+```sh
+rbenv exec bundle exec bin/rails db:create db:migration
+```
+
+## Start
+```sh
+rbenv exec bundle exec bin/rails s -b "0.0.0.0" -p 5000
+```
 * Configuration
 
 * Database creation
